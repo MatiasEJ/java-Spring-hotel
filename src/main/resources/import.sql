@@ -1,0 +1,1 @@
+INSERT INTO `hotel`.`empleados` (`nombre`, `apellido`, `dni`, `direccion`) VALUES ('Juan', 'Perez', '30123123', 'calle falsa 123');
