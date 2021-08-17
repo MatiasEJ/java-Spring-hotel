@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>
+				<a th:href="@{/agregar}">Agregar empleado</a>
 		<div th:if="${listaPersonas != null and !listaPersonas.empty}">
 			<table border="1">
 				<tr>
@@ -13,6 +14,8 @@
 					<th>apellido</th>
 					<th>dni</th>
 					<th>direccion</th>
+					<th>editar</th>
+					<th>eliminar</th>
 				</tr>
 				<div th:each="persona:${listaPersonas}"> 
 				<tr>
@@ -20,7 +23,8 @@
 					<td th:text="${persona.apellido}"></td>
 					<td th:text="${persona.dni}"></td>
 					<td th:text="${persona.direccion}"></td>
-
+					<td><a th:href="@{/editar/}+${persona.id}"
+						   th:text="Editar"></a></td>
 				</tr>	
 				
 				</div>
