@@ -25,6 +25,8 @@
 					<td th:text="${persona.direccion}"></td>
 					<td><a th:href="@{/editar/}+${persona.id}"
 						   th:text="Editar"></a></td>
+					<td><a th:href="@{/eliminar/}+${persona.id}"
+						   th:text="Eliminar"></a></td>
 				</tr>	
 				
 				</div>

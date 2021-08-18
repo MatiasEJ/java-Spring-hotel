@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
 /**
@@ -27,9 +28,13 @@ public class Empleado implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 
+	@NotEmpty	
 	String nombre;
+	@NotEmpty	
 	String apellido;
+	@NotEmpty	
 	String dni;
+	@NotEmpty	
 	String direccion;
 	
 }

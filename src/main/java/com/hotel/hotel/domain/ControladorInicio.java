@@ -37,4 +37,10 @@ public class ControladorInicio {
 		return "editar";
 	}
 
+	@GetMapping("/eliminar/{id}")
+	public String eliminar(Empleado empleado) {
+		empleadoService.eliminar(empleado);
+		return "redirect:/";
+	}
+
 }
