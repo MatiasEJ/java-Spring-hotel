@@ -31,7 +31,7 @@
 			</table>
 		</div>
 		<div th:if="${listaEmpleados ==  null or listaEmpleados.empty}">
-			<p>lista vacia</p>
+			<div th:replace='/layouts/base::errorMsg(#{error.listaVaciaTitulo},#{error.listaVaciaMsg})'></div>
 		</div>
 	</body>
 </html>
