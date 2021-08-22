@@ -1,5 +1,6 @@
-package com.hotel.hotel.domain;
+package com.hotel.hotel.domain.controller;
 
+import com.hotel.hotel.domain.entity.Empleado;
 import com.hotel.hotel.services.EmpleadoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,19 +10,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-public class ControladorInicio {
+public class ControladoraEmpleado {
 	
 	@Autowired
 	private EmpleadoService empleadoService;
 	
 	@GetMapping("/")
-	public String index(Model model) {
-		List<Empleado> personas = empleadoService.listarEmpleados();
-		model.addAttribute("listaPersonas", personas);
+	public String listarEmpleados(Model model) {
+		List<Empleado> empleados = empleadoService.listarEmpleados();
+		model.addAttribute("listaEmpleados", empleados);
 		return "index";
 	}
 
-	@GetMapping("/agregar")
+	@GetMapping("/agregarEmpleado")
 	public String agregar(Empleado empleado) {
 		return "editar";
 	}

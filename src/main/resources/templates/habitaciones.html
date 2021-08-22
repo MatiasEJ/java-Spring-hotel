@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>TODO supply a title</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<a th:href="@{/agregarHabitacion}">Agregar Habitacion</a>
+		<div th:if="${listaHabitaciones != null and !listaHabitaciones.empty}">
+			<table border="1">
+				<tr>
+					<th>Nombre</th>
+					<th>Descripcion</th>
+					<th>Tipo de Habitacion</th>
+					<th>Tematica de Habitacion</th>
+					<th>editar</th>
+					<th>eliminar</th>
+				</tr>
+				<div th:each="habitacion:${listaHabitaciones}"> 
+					<tr>
+						<td th:text="${habitacion.nombre}"></td>
+						<td th:text="${habitacion.descripcion}"></td>
+						<td th:text="${habitacion.tipoHabitacion}"></td>
+						<td th:text="${habitacion.TematicaHabitacion}"></td>
+						<td><a th:href="@{/editar/}+${persona.id}"
+							   th:text="Editar"></a></td>
+						<td><a th:href="@{/eliminar/}+${persona.id}"
+							   th:text="Eliminar"></a></td>
+					</tr>	
+
+				</div>
+			</table>
+		</div>
+		<div th:if="${listaHabitaciones ==  null or listaHabitaciones.empty}">
+			<p>lista vacia</p>
+		</div>
+
+	</body>
+</html>

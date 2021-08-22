@@ -1,7 +1,6 @@
 package com.hotel.hotel.dao;
 
-import com.hotel.hotel.domain.Empleado;
-import com.hotel.hotel.domain.Persona;
+import com.hotel.hotel.domain.entity.Empleado;
 import org.springframework.data.repository.CrudRepository;
 
 

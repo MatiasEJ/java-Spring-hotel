@@ -1,6 +1,6 @@
 package com.hotel.hotel.services;
 
-import com.hotel.hotel.domain.Empleado;
+import com.hotel.hotel.domain.entity.Empleado;
 import java.util.List;
 
 public interface EmpleadoService  {

@@ -1,40 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<title>TODO supply a title</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
+	<head th:insert="layouts/base::head"></head>
 	<body>
-				<a th:href="@{/agregar}">Agregar empleado</a>
-		<div th:if="${listaPersonas != null and !listaPersonas.empty}">
-			<table border="1">
-				<tr>
-					<th>nombre</th>
-					<th>apellido</th>
-					<th>dni</th>
-					<th>direccion</th>
-					<th>editar</th>
-					<th>eliminar</th>
-				</tr>
-				<div th:each="persona:${listaPersonas}"> 
-				<tr>
-					<td th:text="${persona.nombre}"></td>
-					<td th:text="${persona.apellido}"></td>
-					<td th:text="${persona.dni}"></td>
-					<td th:text="${persona.direccion}"></td>
-					<td><a th:href="@{/editar/}+${persona.id}"
-						   th:text="Editar"></a></td>
-					<td><a th:href="@{/eliminar/}+${persona.id}"
-						   th:text="Eliminar"></a></td>
-				</tr>	
-				
-				</div>
-			</table>
-		</div>
-		<div th:if="${listaPersonas ==  null or listaPersonas.empty}">
-			<p>lista vacia</p>
-		</div>
+		<header th:replace="layouts/base::header"></header>
+				<a th:href="@{/agregarEmpleado}">Agregar empleado</a>
+				<a th:href="@{/agregarHabitacion}">Agregar habitacion</a>
 
 	</body>
 </html>

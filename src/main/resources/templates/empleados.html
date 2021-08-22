@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="/layouts/base::head">
+	</head>
+	<body>
+		<header th:replace="/layouts/base::header"></header>
+		<div th:if="${listaEmpleados != null and !listaEmpleados.empty}">
+			<table border="1">
+				<tr>
+					<th>nombre</th>
+					<th>apellido</th>
+					<th>dni</th>
+					<th>direccion</th>
+					<th>editar</th>
+					<th>eliminar</th>
+				</tr>
+				<div th:each="empleado:${listaEmpleados}"> 
+				<tr>
+					<td th:text="${empleado.nombre}"></td>
+					<td th:text="${empleado.apellido}"></td>
+					<td th:text="${empleado.dni}"></td>
+					<td th:text="${empleado.direccion}"></td>
+					<td><a th:href="@{/editar/}+${empleado.id}"
+						   th:text="Editar"></a></td>
+					<td><a th:href="@{/eliminar/}+${empleado.id}"
+						   th:text="Eliminar"></a></td>
+				</tr>	
+				
+				</div>
+			</table>
+		</div>
+		<div th:if="${listaEmpleados ==  null or listaEmpleados.empty}">
+			<p>lista vacia</p>
+		</div>
+
+	</body>
+</html>

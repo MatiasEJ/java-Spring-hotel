@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.hotel.hotel.services;
+package com.hotel.hotel.services.impl;
 
 import com.hotel.hotel.dao.IEmpleadoDao;
-import com.hotel.hotel.domain.Empleado;
-import com.hotel.hotel.domain.Persona;
+import com.hotel.hotel.domain.entity.Empleado;
+import com.hotel.hotel.domain.entity.Persona;
+import com.hotel.hotel.services.EmpleadoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

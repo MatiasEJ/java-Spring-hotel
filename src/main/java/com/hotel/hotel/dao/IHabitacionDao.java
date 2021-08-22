@@ -3,23 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.hotel.hotel.domain;
+package com.hotel.hotel.dao;
 
-import java.util.Date;
-import lombok.Data;
+import com.hotel.hotel.domain.entity.Habitacion;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  *
  * @author Matias Ezequiel Juncos.
  */
-public abstract class Persona {
-
-	long id;
-	String nombre;
-	String apellido;
-	String dni;
-	String direccion;
-	Date fechaNacimiento;
-	
+public interface IHabitacionDao extends CrudRepository<Habitacion, Long> {
 	
 }

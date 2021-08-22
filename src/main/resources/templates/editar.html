@@ -23,6 +23,8 @@ and open the template in the editor.
 				<input type="text" 
 					   name="nombre" 
 					   th:field="*{nombre}"/>
+				<span th:if="${#fields.hasErrors('nombre')}"
+					  th:errors=""></span>
 				<label>apellido</label>
 				<input type="text" 
 					   name="apellido" 
