@@ -4,15 +4,16 @@
 	</head>
 	<body>
 		<header th:replace="/layouts/base::header"></header>
+		<section th:replace="/layouts/base::banner(#{plantillaEmpleado.controlEmpleado})"></section>	
 		<div th:if="${listaEmpleados != null and !listaEmpleados.empty}">
 			<table class="table" >
 				<tr>
-					<th>nombre</th>
-					<th>apellido</th>
-					<th>dni</th>
-					<th>direccion</th>
-					<th>editar</th>
-					<th>eliminar</th>
+					<th>[[#{plantillaEmpleado.nombre}]]</th>
+					<th>[[#{plantillaEmpleado.apellido}]]</th>
+					<th>[[#{plantillaEmpleado.dni}]]</th>
+					<th>[[#{plantillaEmpleado.direccion}]]</th>
+					<th>[[#{plantilla.editar}]]</th>
+					<th>[[#{plantilla.eliminar}]]</th>
 				</tr>
 				<div th:each="empleado:${listaEmpleados}"> 
 				<tr>
@@ -32,6 +33,5 @@
 		<div th:if="${listaEmpleados ==  null or listaEmpleados.empty}">
 			<p>lista vacia</p>
 		</div>
-
 	</body>
 </html>

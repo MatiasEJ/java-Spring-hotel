@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
@@ -20,21 +21,22 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name="empleados")
-public class Empleado implements Serializable{
+@Table(name = "empleados")
+public class Empleado implements Serializable {
+
 	private static final long serialVersionUID = 1L;
- 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
 
-	@NotEmpty	
+	@NotEmpty(message = "No puede estar vacío.")
 	String nombre;
-	@NotEmpty	
+	@NotEmpty(message = "No puede estar vacío.")
 	String apellido;
-	@NotEmpty	
+	@NotEmpty(message = "No puede estar vacío.")
 	String dni;
-	@NotEmpty	
+	@NotEmpty(message = "No puede estar vacío.")
 	String direccion;
-	
+
 }
