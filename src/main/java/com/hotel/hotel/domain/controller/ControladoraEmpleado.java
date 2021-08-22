@@ -15,11 +15,11 @@ public class ControladoraEmpleado {
 	@Autowired
 	private EmpleadoService empleadoService;
 	
-	@GetMapping("/")
+	@GetMapping("/listarEmpleados")
 	public String listarEmpleados(Model model) {
 		List<Empleado> empleados = empleadoService.listarEmpleados();
 		model.addAttribute("listaEmpleados", empleados);
-		return "index";
+		return "empleados";
 	}
 
 	@GetMapping("/agregarEmpleado")

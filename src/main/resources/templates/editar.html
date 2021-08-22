@@ -4,42 +4,77 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html xmlns:th="http://www.thymeleaf.org"
-	  xmlns="http://www.w3.org/1999/xhtml">
-	<head>
-		<title>Datos del empleado</title>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+<html xmlns:th="http://www.thymeleaf.org" >
+	<head th:replace="/layouts/base::head">
 	</head>
 	<body>
-		<div>
-			<h1>Datos empleado</h1>
-			<a th:href="@{/}">regresar</a>
-			<form th:action="@{/guardar}" 
-				  method="post"
-				  th:object="${empleado}">
-				<input type="hidden" name="idEmpleado" th:field="*{id}" /> 
-				<label>nombre</label>
-				<input type="text" 
-					   name="nombre" 
-					   th:field="*{nombre}"/>
-				<span th:if="${#fields.hasErrors('nombre')}"
-					  th:errors=""></span>
-				<label>apellido</label>
-				<input type="text" 
-					   name="apellido" 
-					   th:field="*{apellido}"/>
-				<label for="dni">dni</label>
-				<input type="text" 
-					   name="dni" 
-					   th:field="*{dni}"/>
-				<label>direccion</label>
-				<input type="text" 
-					   name="direccion" 
-					   th:field="*{direccion}"/>
+		<header th:replace="/layouts/base::header"></header>
+		<section class="py-4 bg-light mb-4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 mx-auto">
+						<div class="card">
+							<div class="card-header">
+								<h1><i class="bi-file-person"></i>Control Empleados</h1> 
+							</div>
+							<div class="card-body">
+								<form th:action="@{/guardar}" 
+									  method="post"
+									  th:object="${empleado}">
+									<input type="hidden" name="idEmpleado" th:field="*{id}" /> 
 
-				<input type="submit" value="guardar" name="guardar" />
-			</form>
-		</div>
+									<div class="input-group mb-3">
+										<label class="input-group-text">Nombre</label> 
+										<input class="form-control" type="text" 
+											   name="nombre" 
+											   th:field="*{nombre}"/>
+										<span th:if="${#fields.hasErrors('nombre')}"
+											  th:errors="nombre"></span>
+									</div>
+									<div class="input-group mb-3">
+										<label class="input-group-text">Apellido</label> 
+										<input class="form-control" type="text" 
+											   name="apellido" 
+											   th:field="*{apellido}"/>
+										<span th:if="${#fields.hasErrors('apellido')}"
+											  th:errors="apellido"></span>
+									</div>
+
+									<div class="input-group mb-3">
+										<label class="input-group-text">Dni</label> 
+										<input class="form-control" type="text" 
+											   name="dni" 
+											   th:field="*{dni}"/>
+										<span th:if="${#fields.hasErrors('dni')}"
+											  th:errors="dni"></span>
+									</div>
+									<div class="input-group mb-3">
+										<label class="input-group-text">Direccion</label> 
+										<input class="form-control" type="text" 
+											   name="direccion" 
+											   th:field="*{direccion}"/>
+										<span th:if="${#fields.hasErrors('direccion')}"
+											  th:errors="direccion"></span>
+									</div>
+
+
+									<div class="input-group mb-3">
+										<input  class="form-control" type="submit" value="Guardar" name="Guardar" />
+									</div>
+
+								</form>
+
+
+
+							</div>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
 	</body>
 </html>

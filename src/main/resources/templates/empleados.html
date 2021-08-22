@@ -5,7 +5,7 @@
 	<body>
 		<header th:replace="/layouts/base::header"></header>
 		<div th:if="${listaEmpleados != null and !listaEmpleados.empty}">
-			<table border="1">
+			<table class="table" >
 				<tr>
 					<th>nombre</th>
 					<th>apellido</th>
