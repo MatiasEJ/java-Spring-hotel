@@ -12,8 +12,8 @@
 					<th>[[#{plantillaEmpleado.apellido}]]</th>
 					<th>[[#{plantillaEmpleado.dni}]]</th>
 					<th>[[#{plantillaEmpleado.direccion}]]</th>
-					<th>[[#{plantilla.editar}]]</th>
-					<th>[[#{plantilla.eliminar}]]</th>
+					<th>[[#{accion.editar}]]</th>
+					<th>[[#{accion.eliminar}]]</th>
 				</tr>
 				<div th:each="empleado:${listaEmpleados}"> 
 				<tr>
@@ -23,8 +23,8 @@
 					<td th:text="${empleado.direccion}"></td>
 					<td><a th:href="@{/editar/}+${empleado.id}"
 						   th:text="Editar"></a></td>
-					<td><a th:href="@{/eliminar/}+${empleado.id}"
-						   th:text="Eliminar"></a></td>
+					<td><a th:href="@{/eliminar/}+${empleado.id}">[[#{accion.guardar}]]</a></td>
+						   
 				</tr>	
 				
 				</div>
