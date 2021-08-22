@@ -3,9 +3,11 @@ package com.hotel.hotel.domain.controller;
 import com.hotel.hotel.domain.entity.Empleado;
 import com.hotel.hotel.services.EmpleadoService;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -23,19 +25,22 @@ public class ControladoraEmpleado {
 	}
 
 	@GetMapping("/agregarEmpleado")
-	public String agregar(Empleado empleado) {
-		return "editar";
+	public String agregarEmpleado(Empleado empleado) {
+		return "editarEmpleado";
 	}
-	@PostMapping("/guardar")
-	public String guardar(Empleado empleado) {
+	@PostMapping("/guardarEmpleado")
+	public String guardarEmpleado(@Valid Empleado empleado, Errors errors) {
+		if(errors.hasErrors()){
+			return "editarEmpleado";
+		}
 		empleadoService.guardar(empleado);
 		return "redirect:/";
 	}
-	@GetMapping("/editar/{id}")
-	public String editar(Empleado empleado,Model model) {
+	@GetMapping("/editarEmpleado/{id}")
+	public String editarEmpleado(Empleado empleado,Model model) {
 		empleado = empleadoService.encontrarEmpleado(empleado);
 		model.addAttribute("empleado", empleado);
-		return "editar";
+		return "editarEmpleado";
 	}
 
 	@GetMapping("/eliminar/{id}")
