@@ -42,26 +42,31 @@ and open the template in the editor.
 			</nav>
 		</header>
 
-<section th:fragment="banner(titulo)" class="alert alert-success text-center">
-	<div class="row align-items-center">
-		<div class="col-2 align-self-end text-align-center text-sm-start"><h2 class="mb-0">[[${titulo}]]</h2></div>
-		<div class="col-10 align-self-center text-sm-end">
-			<button class="btn btn-success btn-sm " onclick="window.location.reload()"> 
-				<i class="bi bi-arrow-clockwise pl-1"></i>[[#{accion.recargar}]]</button>
+		<section th:fragment="banner(titulo)" class="alert alert-success text-center">
+			<div class="row align-items-center">
+				<div class="col-2 align-self-end text-align-center text-sm-start"><h2 class="mb-0">[[${titulo}]]</h2></div>
+				<div class="col-10 align-self-center text-sm-end">
+					<button class="btn btn-success btn-sm " onclick="window.location.reload()"> 
+						<i class="bi bi-arrow-clockwise pl-1"></i>[[#{accion.recargar}]]</button>
+				</div>
+
+			</div>
+		</section>
+
+		<div th:fragment="errorMsg(errorTitulo,errorMsg)" class="alert alert-warning mt-2">
+			<h1><i class="bi bi-exclamation-triangle"></i>  [[${errorTitulo}]]</h1>
+			<p>[[${errorMsg}]] </p>
+			<hr>
 		</div>
-
-	</div>
-</section>
-
-<div th:fragment="errorMsg(errorTitulo,errorMsg)" class="alert alert-warning mt-2">
-	<h1><i class="bi bi-exclamation-triangle"></i>  [[${errorTitulo}]]</h1>
-	<p>[[${errorMsg}]] </p>
-	<hr>
-</div>
 		<footer th:fragment="footer" class="text-center text-lg-start bg-light text-muted">
 			<div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
 				© 2021 Copyright:
 				<a class="text-reset fw-bold" href="#">MEJ</a>
+				<br>
+				<span>
+					<a th:href="@{/(lang=es)}">ES</a>||<a th:href="@{/(lang=en)}">EN</a>
+					
+				</span> 
 			</div>
 		</footer>	
 

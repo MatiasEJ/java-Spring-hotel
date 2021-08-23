@@ -24,7 +24,7 @@ and open the template in the editor.
 									<input type="hidden" name="idEmpleado" th:field="*{id}" /> 
 
 									<div class="input-group mb-3">
-										<label class="input-group-text">Nombre</label> 
+										<label class="input-group-text">[[#{plantillaEmpleado.nombre}]]</label> 
 										<input class="form-control" type="text" 
 											   name="nombre" 
 											   th:field="*{nombre}"/>
@@ -32,7 +32,7 @@ and open the template in the editor.
 											  th:errors="*{nombre}"></span>
 									</div>
 									<div class="input-group mb-3">
-										<label class="input-group-text">Apellido</label> 
+										<label class="input-group-text">[[#{plantillaEmpleado.apellido}]]</label> 
 										<input class="form-control" type="text" 
 											   name="apellido" 
 											   th:field="*{apellido}"/>
@@ -42,7 +42,7 @@ and open the template in the editor.
 									</div>
 
 									<div class="input-group mb-3">
-										<label class="input-group-text">Dni</label> 
+										<label class="input-group-text">[[#{plantillaEmpleado.dni}]]</label> 
 										<input class="form-control" type="text" 
 											   name="dni" 
 											   th:field="*{dni}"/>
@@ -51,7 +51,7 @@ and open the template in the editor.
 											  th:errors="*{dni}"></span>
 									</div>
 									<div class="input-group mb-3">
-										<label class="input-group-text">Direccion</label> 
+										<label class="input-group-text">[[#{plantillaEmpleado.direccion}]]</label> 
 										<input class="form-control" type="text" 
 											   name="direccion" 
 											   th:field="*{direccion}"/>
@@ -62,7 +62,7 @@ and open the template in the editor.
 
 
 									<div class="input-group mb-3">
-										<input  class="form-control" type="submit" value="Guardar" name="Guardar" />
+										<input  class="form-control" type="submit" th:value="#{accion.guardar}" name="guardar" />
 									</div>
 
 								</form>
