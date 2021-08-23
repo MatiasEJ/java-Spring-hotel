@@ -67,6 +67,11 @@ and open the template in the editor.
 					<a th:href="@{/(lang=es)}">ES</a>||<a th:href="@{/(lang=en)}">EN</a>
 					
 				</span> 
+				<form th:action="@{/logout}" method="POST">
+					<a href="#" onclick="this.parentNode.submit()">Logout</a>
+
+				</form>
+
 			</div>
 		</footer>	
 
