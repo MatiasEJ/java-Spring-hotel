@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 	<head th:replace="/layouts/base::head">
 	</head>
 	<body>
 		<header th:replace="/layouts/base::header"></header>
 		<section th:replace="/layouts/base::banner(#{plantillaEmpleado.controlEmpleado})"></section>	
+
 		<div th:if="${listaEmpleados != null and !listaEmpleados.empty}">
 			<table class="table" >
 				<tr>
@@ -12,8 +15,8 @@
 					<th>[[#{plantillaEmpleado.apellido}]]</th>
 					<th>[[#{plantillaEmpleado.dni}]]</th>
 					<th>[[#{plantillaEmpleado.direccion}]]</th>
-					<th>[[#{accion.editar}]]</th>
-					<th>[[#{accion.eliminar}]]</th>
+					<th sec:authorize="hasRole('ROLE_ADMIN')" >[[#{accion.editar}]]</th>
+					<th sec:authorize="hasRole('ROLE_ADMIN')" >[[#{accion.eliminar}]]</th>
 				</tr>
 				<div th:each="empleado:${listaEmpleados}"> 
 				<tr>
@@ -21,9 +24,9 @@
 					<td th:text="${empleado.apellido}"></td>
 					<td th:text="${empleado.dni}"></td>
 					<td th:text="${empleado.direccion}"></td>
-					<td><a th:href="@{/editar/}+${empleado.id}"
+					<td sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/editar/}+${empleado.id}"
 						   th:text="Editar"></a></td>
-					<td><a th:href="@{/eliminar/}+${empleado.id}">[[#{accion.guardar}]]</a></td>
+					<td sec:authorize="hasRole('ROLE_ADMIN')" ><a th:href="@{/eliminar/}+${empleado.id}">[[#{accion.guardar}]]</a></td>
 						   
 				</tr>	
 				

@@ -27,7 +27,7 @@ and open the template in the editor.
 								   >[[#{plantillaEmpleado.empleado}]]
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<li><a class="dropdown-item" th:href="@{/agregarEmpleado}">[[#{plantillaEmpleado.altaEmpleado}]]</a></li>
+									<li><a sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" th:href="@{/agregarEmpleado}">[[#{plantillaEmpleado.altaEmpleado}]]</a></li>
 									<li><a class="dropdown-item" th:href="@{/listarEmpleados}">[[#{plantillaEmpleado.listaEmpleado}]]</a></li>
 									<li><hr class="dropdown-divider"></li>
 								</ul>
