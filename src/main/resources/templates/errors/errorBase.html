@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<html lang="es">
+
+	</head>
+	<body>
+		<div th:fragment="sarasa">
+			<h2>sarasa</h2>
+		</div>
+
+		<section th:fragment="errorMsg(errorTitulo,errorMsg)" class="alert alert-warning mt-2">
+			<h1><i class="bi bi-exclamation-triangle"></i>  [[${errorTitulo}]]</h1>
+			<p>[[${errorMsg}]] </p>
+			<hr>
+		</section>
+
+
+	</body>
+</html>

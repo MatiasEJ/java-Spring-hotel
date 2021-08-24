@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="/layouts/base::head"></head>
+	<body>
+		<div><h1>Login</h1></div>
+	<section class="py-4 bg-light mb-4">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 mx-auto">
+						<div class="card">
+							<div class="card-header">
+								<h1><i class="bi-file-person"></i>Control Empleados</h1> 
+							</div>
+							<div class="card-body">
+								<form th:action="@{/login}" 
+									  method="POST"
+									  >
+								<div class="input-group mb-3">
+									<label class="input-group-text" for="username">Username</label> 
+									<input class="form-control" type="text" 
+										   name="username" id="username" 
+										   />
+								</div>
+								<div class="input-group mb-3">
+									<label class="input-group-text" for="password">Password</label> 
+									<input class="form-control" type="password" 
+										   name="password" id="password" 
+										   />
+								</div>
+
+								<div class="input-group mb-3">
+									<input  class="form-control" type="submit" value="Guardar" name="Guardar" />
+								</div>
+								</form>
+							</div>
+						</div> 
+					</div>
+				</div>
+			</div>
+		</section>	
+	</body>
+</html>
