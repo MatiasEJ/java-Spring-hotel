@@ -7,7 +7,7 @@ and open the template in the editor.
 <html xmlns:th="http://www.thymeleaf.org" >
 	<head th:replace="/layouts/base::head"></head>
 	<body>
-		<header th:replace="/layouts/base::header"></header>
+		<header th:replace="/layouts/nav::header"></header>
 		<section th:replace='/errors/errorBase::errorMsg(#{error.403},#{error.403.msg})'></section>
 		<footer th:replace="/layouts/base::footer"></footer>
 	</body>

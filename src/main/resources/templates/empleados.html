@@ -5,7 +5,7 @@
 	<head th:replace="/layouts/base::head">
 	</head>
 	<body>
-		<header th:replace="/layouts/base::header"></header>
+		<header th:replace="/layouts/nav::header"></header>
 		<section th:replace="/layouts/base::banner(#{plantillaEmpleado.controlEmpleado})"></section>	
 
 		<div th:if="${listaEmpleados != null and !listaEmpleados.empty}">

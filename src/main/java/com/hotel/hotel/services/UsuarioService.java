@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service("userDetailsService")
 @Slf4j
@@ -23,21 +24,22 @@ public class UsuarioService implements UserDetailsService {
 	private UsuarioDao usuarioDao;
 
 	@Override
+	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario usuario = usuarioDao.findByUsername(username);
 		if (usuario == null) {
 			throw new UsernameNotFoundException(username);
 		}
-//		var roles = new ArrayList<GrantedAuthority>();
-//		for (Rol rol : usuario.getRoles()) {
-//			roles.add(new SimpleGrantedAuthority(rol.getNombre()));
-//		}
+		var roles = new ArrayList<GrantedAuthority>();
+		for (Rol rol : usuario.getRoles()) {
+			roles.add(new SimpleGrantedAuthority(rol.getNombre()));
+		}
 		
-		var roles = usuario.getRoles()
-				.stream()
-				.map(rol-> new SimpleGrantedAuthority(rol.getNombre()))
-				.peek(auth-> log.info("rol: "+auth.getAuthority()))
-				.collect(Collectors.toList());
+//		var roles = usuario.getRoles()
+//				.stream()
+//				.map(rol-> new SimpleGrantedAuthority(rol.getNombre()))
+//				.peek(auth-> log.info("rol: "+auth.getAuthority()))
+//				.collect(Collectors.toList());
 
 		return new User(usuario.getUsername(), usuario.getPassword(), roles);
 	}

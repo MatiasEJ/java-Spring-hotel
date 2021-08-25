@@ -19,6 +19,7 @@ public class Usuario implements Serializable {
 	private String username;
 	@NotEmpty
 	private String password;
+	
 	@OneToMany
 	@JoinColumn(name = "id_usuario")
 	private List<Rol> roles;

@@ -28,17 +28,16 @@ and open the template in the editor.
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<li><a sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" th:href="@{/agregarEmpleado}">[[#{plantillaEmpleado.altaEmpleado}]]</a></li>
-									<li><a class="dropdown-item" th:href="@{/listarEmpleados}">[[#{plantillaEmpleado.listaEmpleado}]]</a></li>
+									<li><a sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown-item" th:href="@{/listarEmpleados}">[[#{plantillaEmpleado.listaEmpleado}]]</a></li>
 									<li><hr class="dropdown-divider"></li>
 								</ul>
 							</li>
 						</ul>
 					</div>
 				<form class="d-flex" th:action="@{/logout}" method="POST">
-					
-					<span class="form-control mr-sm-2 mx-2" disabled="true" draggable="false" >Bienvenido</span>
-					<span class="form-control mr-sm-2 mx-2"  sec:Authentication="name" disabled="true" draggable="false" ></span>
-					<div class="form-control mr-sm-2 mx-4"  sec:Authentication="principal.authorities" disabled="true" draggable="false" ></div>
+					<div class="mx-2">
+						<p>Bienvenido: <span sec:Authentication="name" disabled="true" draggable="false" ></span>||<span sec:Authentication="principal.authorities" disabled="true" draggable="false" ></span> </p>
+					</div>	
 					<a class="btn btn-outline-success my-2 my-sm-0" href="#" onclick="this.parentNode.submit()">Logout</a>
 
 				</form>
